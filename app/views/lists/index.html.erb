@@ -1,0 +1,7 @@
+
+
+<%= render 'header' %>
+
+<% @lists.each do |list| %>
+<h5><%= link_to list.name, list_path(list) %></h5>
+<% end %>
