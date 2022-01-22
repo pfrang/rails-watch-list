@@ -3,7 +3,8 @@
 
 
 <%= simple_form_for [@list, @bookmark] do |f| %>
-  <%= f.association :movie, input_html: { multiple: true} %>
+  <%#= f.association :movie, input_html: { multiple: true} %>
+  <%= f.association :movie %>
   <%= f.input :comment %>
   <%= f.submit %>
 <% end %>

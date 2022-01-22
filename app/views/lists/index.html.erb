@@ -2,6 +2,11 @@
 
 <%= render 'header' %>
 
-<% @lists.each do |list| %>
-<h5><%= link_to list.name, list_path(list) %></h5>
-<% end %>
+<div class="contianer" style="display: grid; grid-template-columns: 1fr 1fr 1fr; grid-gap: 10px;">
+  <% @lists.each do |list| %>
+  <div style="border: 1px solid black; padding: 4px; margin-top: 10px;">
+    <h5><%= link_to list.name, list_path(list) %></h5>
+    <%= link_to "Delete list", list_path(list), method: :delete, style: "color: red;" %>
+  </div>
+  <% end %>
+</div>

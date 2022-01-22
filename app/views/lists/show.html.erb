@@ -11,6 +11,8 @@
     <p style="background-color: lightgrey; border: 1px solid black;">
     <%= @bookmarks.find_by(movie_id: movie.id).comment %>
     </p>
+    <%= link_to "Delete bookmark",
+    bookmark_path( @bookmarks.find_by(movie_id: movie.id)), method: :delete %>
   </div>
   <% end %>
 </div>
