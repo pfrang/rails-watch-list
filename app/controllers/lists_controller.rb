@@ -19,8 +19,7 @@ class ListsController < ApplicationController
 
   def create
     @list = List.new(strong_params)
-    if @list.valid?
-      @list.save
+    if @list.save
       redirect_to list_path(@list)
     else
       render :new
@@ -31,7 +30,7 @@ class ListsController < ApplicationController
     @list = List.find(params[:id])
     @list.destroy
 
-    redirect_to lists_path
+    redirect_to root_path
   end
 
 
