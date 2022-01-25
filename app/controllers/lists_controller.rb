@@ -7,10 +7,10 @@ class ListsController < ApplicationController
   def show
     @list = List.find(params[:id])
     @bookmarks = Bookmark.where(list_id: params[:id])
-    @movies = []
-    @bookmarks.each do |movie|
-      @movies << Movie.find(movie.movie_id)
-    end
+    # @movies = []
+    # # @bookmarks.each do |movie|
+    # #   @movies << Movie.find(movie.movie_id)
+    # # end
   end
 
   def new
