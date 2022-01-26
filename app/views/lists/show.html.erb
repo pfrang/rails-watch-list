@@ -1,18 +1,22 @@
 
 <%= render 'header' %>
 
-<div style="display: grid; grid-template-columns: 1fr 1fr; grid-gap: 20px; margin: 50px;" >
-  <% @movies.each do |movie| %>
+<% if @list.photo.key %>
+  <div class="img-show-container" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),url('<%= cl_image_path @list.photo.key, height: 400, width: 800, crop: :fill %>');">
+  <h3> <%= @list.name %></h3>
+  </div>
+<% end %>
+<div class="grid-container" >
+  <% @list.movies.each do |movie| %>
   <div style="border: 1px solid black;">
     <img src="<%= movie.poster_url %>" alt="" style="height: 200px; width: 100%; object-fit: cover;">
     <h5><%= movie.title %></h5>
     <p><%= movie.overview %></p>
     <p style="background-color: lightgrey; border: 1px solid black;">
-    <%= @bookmarks.find_by(movie_id: movie.id).comment %>
+    <%= @list.bookmarks.find_by(movie_id: movie.id).comment %>
     </p>
-    <%# <img src="= movie.poster_url" alt="" style="width: 50px; height: 50px;"> %>
-  <%= link_to "Delete bookmark",
-  bookmark_path( @bookmarks.find_by(movie_id: movie.id)), method: :delete %>
+    <%= link_to "Delete bookmark",
+  bookmark_path( @list.bookmarks.find_by(movie_id: movie.id)), method: :delete %>
   </div>
   <% end %>
 </div>

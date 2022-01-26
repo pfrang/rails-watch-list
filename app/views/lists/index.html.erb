@@ -1,16 +1,18 @@
 
 
 <%= render 'header' %>
-
-<div class="contianer" style="display: grid; grid-template-columns: 1fr 1fr 1fr; grid-gap: 10px;">
+  <% console %>
+<div class="grid-container">
   <% @lists.each do |list| %>
-  <div style="border: 1px solid black; padding: 4px; margin-top: 10px;">
+    <% if list.photo.key %>
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+      url('<%= cl_image_path list.photo.key, height: 300, crop: :fill %>')">
+    <% else %>
+      <div class="card">
+    <% end %>
     <h5><%= link_to list.name, list_path(list) %></h5>
-    <%= link_to "Delete list", list_path(list), method: :delete, style: "color: red;" %>
-  </div>
+    <%= link_to "Delete list", list_path(list), method: :delete, class: 'delete-btn' %>
+    </div>
   <% end %>
-  <%= cl_image_tag("crloewdgmxmldx6zbwao",
-      width: 400, height: 300, crop: :fill) %>
-  <%= cl_image_tag("blgpkue84hr6im4tujhv",
-      width: 150, height: 150, crop: :thumb, gravity: :face) %>
+
 </div>
