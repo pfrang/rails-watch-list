@@ -3,18 +3,43 @@
 $text-color: white;
 $text-shadow: 0 0 5px black;
 
-.img-show-container {
+.img-frontpage-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-repeat: no-repeat;
-  height: 400px;
-  width: 1200px;
-  margin: 10px auto;
+  height: 300px;
+  margin: 10px 50px;
   border: 1px solid black;
-  box-shadow: 4px 4px 10px rgba($color: black, $alpha: 0.2);
+  box-shadow: 4px 4px 10px rgba($color: white, $alpha: 0.4);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),
+  url('https://image.shutterstock.com/image-photo/image-260nw-1020188737.jpg');
+  h1 {
+    color: $text-color;
+    text-shadow: $text-shadow;
+  }
+}
+
+.img-show-container {
+  display: flex;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  justify-content: center;
+  align-items: center;
+  height: 280px;
+  width: auto;
+  margin: 10px 50px;
+  border: 1px solid black;
+  box-shadow: 4px 4px 10px rgba($color: white, $alpha: 0.8);
   h3 {
     color: $text-color;
     text-shadow: $text-shadow;
+  }
+  img {
+    width: 100%;
+    height: inherit;
   }
 }
